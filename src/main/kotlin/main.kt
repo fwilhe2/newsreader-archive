@@ -26,23 +26,20 @@ fun main(args: Array<String>) {
                 val (request, response, result) = url.httpGet().responseString(Charsets.UTF_8)
                 val rssFeed = persister.read(Rss::class.java, result.get())
 
-                details {
-                    open = true
-                    summary {
-                        +"${rssFeed.channel.title} >> ${rssFeed.channel.items.sortedByDescending { it.pubDate }.take(3).map { it.title }}"
-                    }
-                    for (item in rssFeed.channel.items.sortedByDescending { it.pubDate }.take(10)) {
-                        ul {
-                            item.title?.let { title ->
-                                li {
-                                    a(href = item.link?.toString()) {
-                                        +"$title (${item.pubDate})"
-                                    }
+                +"${rssFeed.channel.title}"
+
+                for (item in rssFeed.channel.items.sortedByDescending { it.pubDate }.take(10)) {
+                    ul {
+                        item.title?.let { title ->
+                            li {
+                                a(href = item.link?.toString()) {
+                                    +"$title (${item.pubDate})"
                                 }
                             }
                         }
                     }
                 }
+
             }
         }
     }, Charsets.UTF_8)
