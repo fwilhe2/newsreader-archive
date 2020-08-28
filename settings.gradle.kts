@@ -1,3 +1,3 @@
 
-rootProject.name = "krssc"
+rootProject.name = "KRssReader"
 

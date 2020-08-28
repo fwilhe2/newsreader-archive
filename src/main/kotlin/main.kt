@@ -27,6 +27,7 @@ fun main(args: Array<String>) {
                 val rssFeed = persister.read(Rss::class.java, result.get())
 
                 details {
+                    open = true
                     summary {
                         +"${rssFeed.channel.title} >> ${rssFeed.channel.items.sortedByDescending { it.pubDate }.take(3).map { it.title }}"
                     }
