@@ -10,6 +10,7 @@ fun main(args: Array<String>) {
     val urls = listOf(
         "https://www.tagesschau.de/xml/rss2_https",
         "https://www.deutschlandfunk.de/die-nachrichten.353.de.rss",
+        "https://www.swr.de/~rss/swraktuell/swraktuell-bw-100.xml",
         "http://apod.nasa.gov/apod.rss",
         "https://xkcd.com/rss.xml",
         "http://planet.debian.org/rss20.xml",
