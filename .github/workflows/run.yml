@@ -15,6 +15,7 @@ jobs:
           mkdir public
           mv index.html public
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
